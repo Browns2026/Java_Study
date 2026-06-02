@@ -11,7 +11,8 @@
 
 ---
 
-1. 클래스와 객체 (Class and Object)
+클래스와 객체 (Class and Object)
+---
 - Class 는 객체를 만들기 위한 설계도다.
 
         class Student
@@ -34,7 +35,10 @@
 
 즉, 플래스 안에는 보통 필드 + 메소드가 들어간다.
 
-- 객체(Object)는 클래스로부터 실제로 만들어진 대상이다.
+---
+객체(Object)
+---
+- 클래스로부터 실제로 만들어진 대상이다.
 
         Student s1 = new Student();
 
@@ -66,7 +70,8 @@
 
 ---
 
-2. 생성자
+생성자
+---
 - 객체가 만들어질 때 자동으로 실행되는 초기화 메소드다.
 
         public class Main{
@@ -84,8 +89,8 @@
 |필드 초기화에 자주 사용|name, age 값 설정 등|
 
 ---
-
-3. this
+this
+---
 - 현재 객체 자신을 의미한다.
         class Student {
             String name;
@@ -99,5 +104,6 @@
     이게 무슨 말이냐면, this.name 은 객체의 필드, name 은 생성자의 매개변수를 뜻한다. 즉, 현재 객체의 name 필드에 매개변수 name 값을 넣어라. 라는 의미가 된다.
 
 ---
+Static
+---
 
-4. Static
