@@ -311,3 +311,57 @@ final 메소드
             System.out.println("Shape");
         }
     }
+|특징|설명|
+|---|---|
+|abstract 사용|추상 클래스/메소드|
+|객체 생성 불가|new Shape()사용 불가|
+|추상 메소드 가능|몸체 없는 메소드|
+|일반 메소드 가능|print()처럼 구현된 메소드도 가능|
+|자식 클래스 구현|추상 메소드를 자식이 완성시킴|
+
+예시로는
+
+    abstract class Shape{
+        abstract double getArea();
+    }
+    class Circle extend Shape{
+        double radius;
+
+        Circle(double radius){
+            this.radius = radius;
+        }
+        double getArea(){
+            return radius * radius * 3.14;
+        }
+    }
+    public class Main{
+        public static void main(String[] args){
+            Shape s = ew Circle(10);
+            System.out.println(s.getArea());
+        }
+    }
+이때 출력되는 값은 314.0 이다.
+
+그런 이유는 쉽게
+1. shape 는 추상 클래스라 직업 객체 생성 불가하다.
+2. 하지만 Circle 은 Shape 를 상송하고 getArea()를 구현한다.
+3. Shape s = new Circle(10); 는 다향성을 의미하고
+4. 실제 객체는 Circle 이므로 Circle 의 getArea() 실행된다.
+
+---
+인터페이스
+---
+구현해야 할 가능의 약속/계약 이라고 보면 된다.
+
+    interface Flyable{
+        void fly();
+    }
+이 인터페이스를 구현하는 클래스는 fly()를 반드시 구현해야 한다.
+
+    class Bird implements Flyable{
+        public void fly(){
+            System.out.println("bird fly);
+        }
+    }
+
+    
