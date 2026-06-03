@@ -344,7 +344,7 @@ final 메소드
 
 그런 이유는 쉽게
 1. shape 는 추상 클래스라 직업 객체 생성 불가하다.
-2. 하지만 Circle 은 Shape 를 상송하고 getArea()를 구현한다.
+2. 하지만 Circle 은 Shape 를 상속하고 getArea()를 구현한다.
 3. Shape s = new Circle(10); 는 다향성을 의미하고
 4. 실제 객체는 Circle 이므로 Circle 의 getArea() 실행된다.
 
@@ -364,4 +364,128 @@ final 메소드
         }
     }
 
+.
     
+    public class Main{
+        public static void main(String[] agrs){
+            Flyable f = new Bird();
+            f.fly();
+        }
+    }
+출력되는 값은 bird fly 이다.
+
+1. 인터페이스는 implements로 구현한다.
+2. 인터페이스 타입으로 구현 객체를 참조할 수 있다.
+3. 다형성이다.
+---
+추상 클래스와 인터페이스 비교
+---
+|구분|추상클래스|인터페이스|
+|---|---|---|
+|키워드|abstract class|interface|
+|사용|extends|implement|
+목적|공통 부모 역할|기능 계약/규칙|
+|객체 생성|불가능|불가능|
+|다중 적용|클래스 상속 하나만 가능|여러개 구현 가능|
+|일반 메소드|가능|기능명세|
+
+예시로,
+    
+    abstract class Animal{
+        abstract void sound();
+    }
+이건 동물이라는 동통 부모 라고 한다면
+
+    interface Flyable{
+        void fly();
+    }
+이건 날 수 있는 기능을 가진다고 볼 수 있다.
+
+---
+제네릭
+---
+타입을 나중에 정하는 문법이다.
+
+예를 들어, 제네릭이 없을 때
+
+    class Data{
+        private Object object;
+
+        public void set(Object object){
+            this.object = object;
+        }
+        public Object get(){
+            return object;
+        }
+    }
+
+사용하게 된다면,
+        
+        Data data = new Data();
+        data.set("hello");
+
+        String s = (String)data.get();
+1. get()의 반환 타입이 Object 라서
+2. String 으로 형변환 해야하며
+3. 이를 잘못 형변환하면 실행도중 오류가 발생한다.
+
+그래서 제네릭을 사용한다면
+
+    class Data<T>{
+        private T value;
+
+        ppublic void set(T value){
+            this.value = value;
+        }
+
+        public T get(){
+            return value;
+        }
+    }
+-
+    
+    Data<String> data = new Data<String>();
+    data.set("hello");
+
+    String s = data.get();
+    System.out.println(s);
+
+출력값은 hello 가 된다.
+
+이는
+1. 형변환이 불필요하며
+2. 타입 안정성이 높아지고
+3. 동시에 컴파일 시점에 타입 오류를 잡을 수 있다.
+
+---
+제네릭에는 핵심이 존재하는데,
+    
+    Data<String>
+은 Data 객체는 String 타입을 저장한다는 의미이다.
+
+    Data<Integer>
+는 Data 객체는 Integer 타입을 저장한다는 의미이다.
+
+쉽게 말하자면
+- 제네릭은 클래스나 메소드에서 사용할 타입을 미리 고정하지 않고, 객체 생성 시 타입을 지정할 수 있게 하는 기능이다.
+
+
+오늘의 공부 요약
+
+|개념|의미|
+|---|---|
+|클래스|객체를 만들기 위한 설계도|
+|객체|클래스로부터 생성된 실제 대상|
+|필드|객체의 데이터|
+|메소드|객체의 기능|
+|생성자|객체 생성 시 초기화|
+|this|현재 객체 자신|
+|static|클래스 소속, 객체들이 공유|
+|final 변수|값 변경 불가|
+|상속|부모 기능을 자식이 물려받음|
+|오버라이딩|부모 메소드를 자식이 재정의|
+|다형성|부모 타입으로 자식 객체 참조|
+|추상 클래스|미완성 클래스, 객체 생성 불가|
+|인터페이스|구현해야 할 기능 계약|
+|제네릭|타입을 나중에 지정|
+
