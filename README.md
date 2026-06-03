@@ -302,4 +302,12 @@ final 메소드
 추상클래스는 두개로 나눌 수 있다.
 하나는 일반적인 추상 클래스와 인터페이스가 되겠다.
 
+우리가 알고 있는 추상 클래스는 미완성 클래스라고 볼 수 있다.
 
+    abstract class Shape {
+        abstract double getArea();
+
+        void print(){
+            System.out.println("Shape");
+        }
+    }
