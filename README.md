@@ -255,4 +255,51 @@ final 메소드
 ---
 다형성
 ---
+금일 복습하는 내용중 가장 중요하다고 볼 수 있는 단락이다.
+
+- 부모 타입 변수로 자긱 객체를 참조할 수 있는 성질 이다.
+
+        Animal a = new Dog();
+    이걸 보고 다형성 이라고 한다.
+
+    다형성 즉, Polymorphism은
+        
+        class Animal {
+            void sound(){
+                System.out.println("animal");
+            }
+        }
+        class Dog extends Animal {
+            void sound(){
+                System.out.println("dog");
+            }
+        }
+        public class Main{
+            public static void main(String[] args) {
+                Animal a1 = new Dog();
+                Animal a2 = new Cat();
+
+                a1.sound();
+                a2.sound();
+            }
+        }
+    이런식으로 부모 자식 관계를 중심으로 이뤄져있고, 이때 출력되는 값은 dog 그리고 cat 이다.
+
+그렇다면 그렇게 나오는 이유가 뭘까?
+
+|변수|참조타입|실제객체|실행메소드|
+|---|---|---|---|
+|a1|Animal|Dog|Dog의 sound|
+|a2|Animal|Cat|Cat의 sound|
+
+이 말을 풀자면, 참조변수 타입은 Animal 이지만, 실제 객체가 Dog 라면 Dog 메소드가 실행된다.
+실제 객체가 Cat 이면 Cat 메소드가 실행된다.
+따라서, 오버라이딩 된 메소드는 참조변수 타입이 아닌 실제 객체 타이블 기준으로 실행된다.
+
+---
+추상 클래스
+---
+추상클래스는 두개로 나눌 수 있다.
+하나는 일반적인 추상 클래스와 인터페이스가 되겠다.
+
 
