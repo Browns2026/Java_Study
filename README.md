@@ -524,3 +524,138 @@ final 메소드
 ---
 
 2. 예외처리
+- 예외처리란, 말 그래도 예외 상황을 처리힐 때 사용하는 건데, 예외가 발생하면 프로그램이 비정상 종료가 될 수 있기에 Java에서는 예외처리 문법을 제공한다.
+
+1. try-catch문
+        
+        try {
+            예외 발생 가능한 코드 
+        } catch (Exception e) {
+            예외가 발생 했을 때 처리할 코드
+        }
+    
+    |구분|의미|
+    |---|---|
+    |try|예외 발생 가능 코드|
+    |catch|예외 발생 시 처리 코드|
+    |Exception e|발생한 예외 객체|
+
+    를 기본 문법을 바탕으로 사용된다.
+    즉 이 말은 try 블록에서 예외가 발생하면 catch 블록에서 이를 처리 한다는 뜻으로도 볼 수 있다.
+
+    ---
+2. finally
+- 예외 발생 여부와 상관없이 실행된다.
+
+        try {
+            // 예외발생 가능 코드
+        } catch (Exception e) {
+            // 예외 처리
+        } finally {
+            // 항상 실행
+        }
+
+    ---
+
+3. throws
+- 예외 처리를 현재 메소드에서 하지 않고 호출한 쪽으로 넘기는 것이다.
+
+        void reaDile() throws IOExecpeion {
+            // 파일 읽기
+        }
+    이는 곧 해당 메소드에서는 IOException이 발생할 수 있으니, 이를 호출한 쪽에서 처리해라 라는 의미가 된다.
+
+그 외에도 checked exception/ unchecked exception 이 있는데,
+    
+1. checked exception - 컴파일러가 예외처리를 강제한다.
+2. unchecked exception - 실행 중 발생, 컴파일러는 이를 강제하지 않는다. 
+
+와 같은 조건 등이 있다.
+
+|예외|종류|
+|---|---|
+|IOException|checked exception|
+|SQLException|checked exception|
+|NullPointerException|unchecked exception||ArithmeticException|unchecked exception|
+|ArrayIndexOutOfBoundsException|unchecked exception|
+
+---
+
+java.lang 패키지
+---
+- Java의 기본 패키지다. 이는 위에서 언급한 대로 별도로 import 하지 않고 자동으로 사용할 수 있다는 큰 장점이 있다.
+
+주요 클래스로는 우리가 잘 알고 있는
+
+|클래스|뜻|
+|---|---|
+|Object|모든 클래스의 최상위 클래스|
+|String|문자열|
+|StringBuffer|변경 가능한 문자열|
+|StringBuilder|변경 가능한 문자열|
+|System|표준 입출력, 시스템 기능|
+|Math|수학 메소드 - C# 에서는 Mathf 로 사용됨|
+|Integer, Double 등|Wrapper 클래스|
+
+이것들이 포함된다.
+
+---
+그러면 이제부터 위의 목록들에 대해 알아보자.
+
+Object 객체 클래스
+---
+- 모든 Java클래스의 푀상위 클래스다.
+즉, 모든 클래스는 직접/간접적으로 Object를 상속받는다.
+
+주요 메소드로는
+1. toString() - 객체를 문자열로 표현 -> 클래스명@해시코드
+2. equals() - 객체 비교 -> ==는 참조값 비교, equals()는 내용 비료용으로 재정의해서 사용 가능
+3. hashCode() - 객체의 해시값 반환 -> 객체 저장/검색에서 사용된다. 이전 DB 에서 배운 내용과 유사하며 HashSet, HashMap 같은 해시 기반 자료구조에서 중요하다.
+4. getClass() - 객체의 클래스 정보 반환
+5. String / StringBuffer / StringBuilde - 쉽게 말해 문자열, 변경가능 문자열을 의미한다.
+여기서의 변경가능 문자열 이라 함은, StringBuffer 에서는 멀티스레드 환경에서 상대적으로 안전하며, StringBuilder 은 단일 스레스 환격에서 적합하다는 차이만 존재한다.
+
+---
+
+Wrapper 클래스
+---
+이는 기본 자료형을 객체처럼 다루기 위한 클래스다.
+
+|기본형|Wrapper 클래스|
+|---|---|
+int|Integer
+double|Double
+char|Character
+boolean|Boolean
+long|Long
+float|Float
+
+예를 들면 이렇게 구분할 수 있다.
+        
+    Integer a = 10; // 오토 박싱
+    int b = a; // 오토 언박싱
+
+
+여기서의 오토 박싱/언박싱 이 뭔지 알아보자.
+
+### Boxing / Unboxing
+1. Boxing - 기본형을 객체로
+2. Unboxing - 객체 를 기본형으로
+
+바꾸는 것을 의미한다.
+
+---
+
+컬렉션
+---
+- 여러 데이터를 저장하고 관리하는 자료구조다. 배열과 비슷하지만 사용성이 더 유연하다.
+
+|인터페이스|특징|
+|---|---|
+List|순서가 있으며 중복허용 가능하다
+Set|순서 보장 안되며 중복허용도 불가능하다
+Queue|먼저 들어간 데이터가 먼저 나오는 구조
+Map|key-value 쌍으로 저장
+
+
+
