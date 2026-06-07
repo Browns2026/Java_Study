@@ -820,3 +820,31 @@ JDBC (Java Database Connectivity)
         - required : 필요한 다른 모듈 지정
         - export : 외부에 공개할 패키지 지정
 
+---
+
+## 정리표
+|비교|반드시 외울 것|
+|---|---|
+|인스턴스 필드 vs static 필드|객체별 존재 vs 클래스 공유
+|final 변수/메소드/클래스|변경 불가 / 오버라이딩 불가 / 상속 불가
+|오버로딩 vs 오버라이딩|매개변수 다름 / 부모 메소드 재정의
+|추상 클래스 vs 인터페이스|공통 부모 / 기능 계약
+|throw vs throws|직접 발생 / 호출자에게 위임
+|checked vs unchecked|컴파일러 강제 / 실행 중 예외
+|== vs equals()|참조 비교 / 내용 비교
+|String vs StringBuffer vs StringBuilder|불변 / 동기화 변경 가능 / 비동기화 변경 가능
+|List vs Set vs Queue vs Map|순서+중복 / 중복X / FIFO / key-value
+|filter vs map vs forEach|조건 / 변환 / 처리
+|byte stream vs character stream|byte / char
+|Thread vs Runnable|클래스 상속 / 인터페이스 구현
+|start() vs run()|새 스레드 시작 / 실행 내용
+|Connection vs Statement vs ResultSet|DB 연결 / SQL 실행 / 결과 저장
+|requires vs exports|필요한 모듈 / 공개 패키지|
+
+@07 June, 2026
+일단 공부 내용 정리는 여기까지 하고, 다시 보면서 내용을 수정 및 추가는 이후에 할 예정
+---
+
+
+-
+
