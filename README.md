@@ -719,4 +719,104 @@ Map|key-value 쌍으로 저장
 - byte stream/byte 단위 구성 - InputStream, OutupStream
 - char Stream/문자 단위 구성 - Reader,Writer
 
+### 주요클래스
+|클래스|뜻|
+|---|---|
+|FileInputStream|파일에서 byte 단위 입력|
+|FileOutputStream|파일에 byte 단위 출력|
+|FileReader|파일에서 문자 단위 입력|
+|FileWriter|파일에 문자 단위 출력|
+|BufferedReader|버퍼를 이용한 문자 입력|
+|BufferedWriter|버퍼를 이용한 문자 출력|
+
+---
+
+NIO
+---
+- 기존 java.io 보다 더 발전된 입출력 기능을 제공하는 패키지이다.
+java.nio.file에서는 파일 경로와 파일 처리를 다룬다.
+
+- Path 는 파일이나 디렉터리의 경로를 표현하는 인터페이스다.
+- Files 클래스는 파일을 다루는 여러 정적 메소드를 제공한다.
+    - 예를 들면 파일 존재여부 확인, 복사, 삭제, 읽기, 쓰기 등
+---
+
+스레드
+---
+
+|개념|뜻|
+|---|---|
+|프로세스| 실행중인 프로그램|
+|스레드|프로게스 안에서 실행되는 작업 흐름|
+
+이는 곳 하나의 프로세스 안에 여러 스레드가 존재할 수 있다는 얘기다.
+
+1. 멀티 스레드
+- 하나의 프로그램 안에서 멀티(Multi) 즉, 여거 작업 흐름이 동시에 실행되는 것이다.
+이에 따른 장점으로는 동시에 여러 작업 처리가 가능하며 자원 활용 효율성이 증가 한다는 점이지만, 공유 데이터로 접근 시, 동기화가 반드시 필요하다.
+
+2. 스레드 생성 방법
+- Thread 클래스 상속시, Thread를 상속받아 run() 를 재정의하고
+Runnable 인터페이스 구현시, Runnable의 run() 구현 후 Thread 에 전달한다.
+
+그러면, 스레드를 사용하려면 어떻게 해야 할까, 
+
+|메소드|뜻|
+|---|---|
+|start()|새 스레드를 시작한다.
+|run()|스레드가 수행할 작업 내용을 의미
+
+이 말은 즉, 스레드를 시작하려면 run()을 직접 호출하는 것이 아닌, start()를 이용해, 호줄해야 한다는 점이다.
+
+그러면 아까 말한대로, 공유 데이터로 접근기, 동기화가 필요하다고 했는데, 
+
+3. 동기화
+- 여러 스레드가 같은 데이터를 동시에 수정하면 문제가 생길 수 있는데 이를 막기 위해 동시화를 사용한다. 이는 곧 동기화는 여러 각종 자원에 의해 동시 접근해서 irragular 하게 수정되는 부분을 막기 위해 생긴 방안이다.
+
+---
+
+JDBC
+---
+- Java에서의 데이터베이스(DB)에 접속하고 SQL을 실행하기 위한 API이다.
+JDBC (Java Database Connectivity)
+
+사용되는 흐음은 이러하다.
+
+|단계|뜻|
+|---|---|
+1. 드라이버 준비 - DBMS에 맞는 JDBC 드라이버 사용
+2. Connection 생성 - DB 연결
+3. Statement 생성 - SQL 실생 객체 생성
+4. SQL 실행 - SELECT, INSERT 등 실행
+5. ResultSet 처리 - SELECT 결과 처리
+6. close - 자원 닫기
+
+### 주요 객체
+|객체|의미|
+|---|---|
+|Connection|DB 연결|
+|Statement|SQL 실행|
+|PreparedStatement|미리 준비된 SQL 실행
+|ResultSet|SELECT 결과 저장|
+|DriverManager|DB 열결 관리|
+
+즉, Connection은 DB 연결, Statement는 SQL 실행, ResultSet은 조회 결과를 의미한다.
+
+---
+
+라이브러리와 모듈
+---
+- 라이브러리
+    - 라이브러리는 재사용 가능한 클래스와 기능을 묶어놓은 것이다.
+    - 예를 들면 jar 파일, 외부 API, 공통 기능 묶음 등이 있다.
+- JAR
+    - Java Archive의 약자로, 여러 클래스 파일과 자원을 하나로 묶은 파일을 의미한다.
+- 모듈
+    - Java 9 이후 도입된 기능으로, 관련 패키지와 리소스를 묶고 의존성을 명시적으로 관리한다.
+
+    1. module-info.java
+        - 모든 정보를 정의하는 파일이다.
+        - moudule : 모듈 선언
+        - required : 필요한 다른 모듈 지정
+        - export : 외부에 공개할 패키지 지정
 
