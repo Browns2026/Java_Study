@@ -846,5 +846,97 @@ JDBC (Java Database Connectivity)
 ---
 
 
--
+생성자 = 클래스 이름과 같고 new 할 때 자동 호출  
+static = 클래스가 하나를 공유  
+오버로딩 = 같은 이름, 매개변수 다름  
+오버라이딩 = 상속 관계에서 부모 메소드 재정의  
+다형성 = 부모 타입으로 자식 객체 참조, 실행은 실제 객체 기준  
+==는 참조 비교, equals()는 내용 비교
+
+List = 순서 있음, 중복 가능  
+Set = 중복 불가  
+Map = key-value, key 중복 불가
+
+---
+
+### 출근길 복습표
+1. 클래스 / 객체 / 생성자 / this
+2. static / final
+3. 오버로딩 / 오버라이딩
+4. 상속 / 다형성
+5. 추상 클래스 / 인터페이스
+6. Object / String / equals
+7. 컬렉션 List / Set / Map
+8. Stream / Thread / JDBC
+
+        class Student {
+            String name;
+
+            ______(String name) {
+                this.name = name;
+            }
+        }
+
+---
+
+        class Counter {
+            ______ int count = 0;
+        }
+
+
+---
+        class Animal {
+            void sound() {
+                System.out.println("animal");
+            }
+        }
+
+        class Dog ______ Animal {
+            void sound() {
+                System.out.println("dog");
+            }
+        }
+
+---
+
+        class Counter {
+            static int count = 0;
+
+            Counter() {
+                count++;
+            }
+        }
+
+        public class Main {
+            public static void main(String[] args) {
+                new Counter();
+                new Counter();
+                new Counter();
+
+                System.out.println(Counter.count);
+            }
+        }
+
+---
+
+        class Animal {
+            void sound() {
+                System.out.println("animal");
+            }
+        }
+
+        class Dog extends Animal {
+            void sound() {
+                System.out.println("dog");
+            }
+        }
+
+        public class Main {
+            public static void main(String[] args) {
+                Animal a = new Dog();
+                a.sound();
+            }
+        }
+
+---
 
