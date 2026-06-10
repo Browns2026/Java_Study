@@ -42,7 +42,8 @@
 
         Student s1 = new Student();
 
-    이 말은 곧, Student 타입 변수 s1 을 만들고, new Student()로 Student 객체를 생성한 뒤, 그 객체를 s1이 가리킨다.
+    이 말은 곧, Student 타입 변수 s1 을 만들고,  
+    new Student()로 Student 객체를 생성한 뒤, 그 객체를 s1이 가리킨다.
 
     예시로 다시 설명하자면, 
         
@@ -66,7 +67,8 @@
             }
         }
 
-    이때 출력값은 Kim 과 20 이 되며, s1.name 은 s1 객체의 name 필드에 접근한다는 뜻이되며, s1.printInfo()는 s1 객체의 메소드를 실행한다는 뜻이다.
+    이때 출력값은 Kim 과 20 이 되며, s1.name 은 s1 객체의 name 필드에 접근한다는 뜻이자,  
+    s1.printInfo()는 s1 객체의 메소드를 실행한다는 뜻이다.
 
 ---
 
@@ -101,7 +103,8 @@ this
                 this.age - age;
             }
         }
-    이게 무슨 말이냐면, this.name 은 객체의 필드, name 은 생성자의 매개변수를 뜻한다. 즉, 현재 객체의 name 필드에 매개변수 name 값을 넣어라. 라는 의미가 된다.
+    이게 무슨 말이냐면, this.name 은 객체의 필드, name 은 생성자의 매개변수를 뜻한다.  
+    즉, **현재 객체의 name 필드에 매개변수 name 값을 넣어라.** 라는 의미가 된다.
 
 ---
 Static
@@ -184,7 +187,7 @@ static 메소드
 ---
 final
 ---
-변경불가/ 재정의불가/ 상속불가 라고 생각하면 된다.
+**변경불가/ 재정의불가/ 상속불가** 라고 생각하면 된다.
 
 |위치|의미|
 |---|---|
@@ -202,7 +205,7 @@ final
 이 말은 즉, final int MAX 에 100 이란 숫자를 넣으면 값을 바꿀 수 없다.
 
 ---
-final 메소드
+### final 메소드
 
     class Parant {
         final void print(){
@@ -283,7 +286,11 @@ final 메소드
                 a2.sound();
             }
         }
-    이런식으로 부모 자식 관계를 중심으로 이뤄져있고, 이때 출력되는 값은 dog 그리고 cat 이다.
+    이런식으로 부모 자식 관계를 중심으로 이뤄져있고, 이때 출력되는 값은 dog 그리고 cat 이다.  
+    명확하게 구분하자면,  
+    
+    - a1.sound() 에서는 doganimal 이런식으로,  
+    - a2.sound() 에서는 catanimal 로 출력될 것이다.
 
 그렇다면 그렇게 나오는 이유가 뭘까?
 
@@ -292,10 +299,11 @@ final 메소드
 |a1|Animal|Dog|Dog의 sound|
 |a2|Animal|Cat|Cat의 sound|
 
-이 말을 풀자면, 참조변수 타입은 Animal 이지만, 실제 객체가 Dog 라면 Dog 메소드가 실행된다.
-실제 객체가 Cat 이면 Cat 메소드가 실행된다.
-따라서, 오버라이딩 된 메소드는 참조변수 타입이 아닌 실제 객체 타이블 기준으로 실행된다.
+이 표를 풀자면, 참조변수 타입은 Animal 이지만, 실제 객체가 Dog 라면 Dog 메소드가 실행된다.  
+실제 객체가 Cat 이면 Cat 메소드가 실행된다.  
+따라서, **오버라이딩** 된 메소드는 참조변수 타입이 아닌 실제 객체 타이블 기준으로 실행된다.
 
+---
 ---
 추상 클래스
 ---
@@ -360,7 +368,7 @@ final 메소드
 
     class Bird implements Flyable{
         public void fly(){
-            System.out.println("bird fly);
+            System.out.println("bird fly");
         }
     }
 
@@ -378,6 +386,9 @@ final 메소드
 2. 인터페이스 타입으로 구현 객체를 참조할 수 있다.
 3. 다형성이다.
 ---
+---
+
+
 추상 클래스와 인터페이스 비교
 ---
 |구분|추상클래스|인터페이스|
