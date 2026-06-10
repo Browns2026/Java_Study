@@ -368,7 +368,7 @@ final
 
     class Bird implements Flyable{
         public void fly(){
-            System.out.println("bird fly");
+            System.out.println("bird");
         }
     }
 
