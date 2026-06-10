@@ -445,7 +445,7 @@ final
     class Data<T>{
         private T value;
 
-        ppublic void set(T value){
+        public void set(T value){
             this.value = value;
         }
 
@@ -522,7 +522,7 @@ final
         import java.util.Scanner;
         이 말은 즉, java.util 패키지에 있는 Scanner 클래스를 사용해겠다 라는 의미이다.
 
-        유니티 게임에서도 이와 비슷ㅌ한 것이 있다. 는 사실 개발 언어에는 다 있는 것 같다... ㅠ
+        유니티 게임에서도 이와 비슷한 것이 있다. 는 사실 개발 언어에는 다 있는 것 같다... ㅠ
 
         또는
 
